@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserController } from './user.controller';
-import { UserService } from '@/core/user/services/user.service';
-import { User } from '@/core/user/entities/user.entity';
-import { UserRepository } from '@/infrastructure/database/repositories/user.repository';
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { UserController } from "./user.controller";
+import { UserService } from "@/core/user/services/user.service";
+import { User } from "@/core/user/entities/user.entity";
+import { UserRepository } from "@/infrastructure/database/repositories/user.repository";
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
@@ -11,7 +11,7 @@ import { UserRepository } from '@/infrastructure/database/repositories/user.repo
   providers: [
     UserService,
     {
-      provide: 'IUserRepository',
+      provide: "IUserRepository",
       useClass: UserRepository,
     },
   ],
